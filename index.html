@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sound board</title>
+	<script type="text/javascript" src="js/paper-full.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src ="js/sound board.js" type="text/paperscript" canvas= canvas></script>
+	<link rel="stylesheet" type="text/css" href="css/sound board/main.css">
+
+</head> 
+<body>
+
+	<div class="keyboardSpacer">
+		<span class="overlay-keyboard">    
+			<div id="button-grid">
+				<button class="btns" value="Q" onclick="overlayKeypress('Q')">Q</button>
+				<button class="btns" value="W" onclick="overlayKeypress('W')">W</button>
+				<button class="btns" value="E" onclick="overlayKeypress('E')">E</button>
+				<button class="btns" value="R" onclick="overlayKeypress('R')">R</button>
+				<button class="btns" value="T" onclick="overlayKeypress('T')">T</button>
+				<button class="btns" value="Y" onclick="overlayKeypress('Y')">Y</button>
+				<button class="btns" value="U" onclick="overlayKeypress('U')">U</button>
+				<button class="btns" value="I" onclick="overlayKeypress('I')">I</button>
+				<button class="btns" value="O" onclick="overlayKeypress('O')">O</button>
+				<button class="btns" value="P" onclick="overlayKeypress('P')">P</button>
+				<button class="btns" value="A" onclick="overlayKeypress('A')">A</button>
+				<button class="btns" value="S" onclick="overlayKeypress('S')">S</button>
+				<button class="btns" value="D" onclick="overlayKeypress('D')">D</button>
+				<button class="btns" value="F" onclick="overlayKeypress('F')">F</button>
+				<button class="btns" value="G" onclick="overlayKeypress('G')">G</button>
+				<button class="btns" value="H" onclick="overlayKeypress('H')">H</button>
+				<button class="btns" value="J" onclick="overlayKeypress('J')">J</button>
+				<button class="btns" value="K" onclick="overlayKeypress('K')">K</button>
+				<button class="btns" value="L" onclick="overlayKeypress('L')">L</button>
+				<button class="btns" value="Z" onclick="overlayKeypress('Z')">Z</button>
+				<button class="btns" value="X" onclick="overlayKeypress('X')">X</button>
+				<button class="btns" value="C" onclick="overlayKeypress('C')">C</button>
+				<button class="btns" value="V" onclick="overlayKeypress('V')">V</button>
+				<button class="btns" value="B" onclick="overlayKeypress('B')">B</button>
+				<button class="btns" value="N" onclick="overlayKeypress('N')">N</button>
+				<button class="btns" value="M" onclick="overlayKeypress('M')">M</button>
+			</div>
+		</span>
+	</div>
+	
+
+	<canvas id="canvas" type="text/paperscript" canvas= canvas></canvas>
+
+	<script>
+
+	var canvasBody = document.getElementById("canvas");
+
+	var keyPress = {
+	q: {
+		sound: new Howl({
+  		src: ['sounds/bubbles.mp3']
+		}),
+		color: '#1abc9c'
+	},
+	w: {
+		sound: new Howl({
+  		src: ['sounds/clay.mp3']
+		}),
+		color: '#2ecc71'
+	},
+	e: {
+		sound: new Howl({
+  		src: ['sounds/confetti.mp3']
+		}),
+		color: '#3498db'
+	},
+	r: {
+		sound: new Howl({
+  		src: ['sounds/corona.mp3']
+		}),
+		color: '#9b59b6'
+	},
+		t: {
+		sound: new Howl({
+  		src: ['sounds/dotted-spiral.mp3']
+		}),
+		color: '#34495e'
+	},
+	y: {
+		sound: new Howl({
+  		src: ['sounds/flash-1.mp3']
+		}),
+		color: '#16a085'
+	},
+	u: {
+		sound: new Howl({
+  		src: ['sounds/flash-2.mp3']
+		}),
+		color: '#27ae60'
+	},
+	i: {
+		sound: new Howl({
+  		src: ['sounds/flash-3.mp3']
+		}),
+		color: '#2980b9'
+	},
+	o: {
+		sound: new Howl({
+			src: ['sounds/glimmer.mp3']
+		}),
+		color: '#8e44ad'
+	},
+	p: {
+		sound: new Howl({
+  		src: ['sounds/moon.mp3']
+		}),
+		color: '#2c3e50'
+	},
+	a: {
+		sound: new Howl({
+  		src: ['sounds/pinwheel.mp3']
+		}),
+		color: '#f1c40f'
+	},
+	s: {
+		sound: new Howl({
+  		src: ['sounds/piston-1.mp3']
+		}),
+		color: '#e67e22'
+	},
+		d: {
+		sound: new Howl({
+  		src: ['sounds/piston-2.mp3']
+		}),
+		color: '#e74c3c'
+	},
+	f: {
+		sound: new Howl({
+  		src: ['sounds/prism-1.mp3']
+		}),
+		color: '#95a5a6'
+	},
+	g: {
+		sound: new Howl({
+  		src: ['sounds/prism-2.mp3']
+		}),
+		color: '#f39c12'
+	},
+	h: {
+		sound: new Howl({
+  		src: ['sounds/prism-3.mp3']
+		}),
+		color: '#d35400'
+	},
+	j: {
+		sound: new Howl({
+  		src: ['sounds/splits.mp3']
+		}),
+		color: '#1abc9c'
+	},
+	k: {
+		sound: new Howl({
+  		src: ['sounds/squiggle.mp3']
+		}),
+		color: '#2ecc71'
+	},
+	l: {
+		sound: new Howl({
+  		src: ['sounds/strike.mp3']
+		}),
+		color: '#3498db'
+	},
+	z: {
+		sound: new Howl({
+  		src: ['sounds/suspension.mp3']
+		}),
+		color: '#9b59b6'
+	},
+	x: {
+		sound: new Howl({
+  		src: ['sounds/timer.mp3']
+		}),
+		color: '#34495e'
+	},
+	c: {
+		sound: new Howl({
+  		src: ['sounds/ufo.mp3']
+		}),
+		color: '#16a085'
+	},
+	v: {
+		sound: new Howl({
+  		src: ['sounds/veil.mp3']
+		}),
+		color: '#27ae60'
+	},
+	b: {
+		sound: new Howl({
+  		src: ['sounds/wipe.mp3']
+		}),
+		color: '#2980b9'
+	},
+	n: {
+		sound: new Howl({
+			src: ['sounds/zig-zag.mp3']
+		}),
+		color: '#8e44ad'
+	},
+	m: {
+		sound: new Howl({
+  		src: ['sounds/moon.mp3']
+		}),
+		color: '#2c3e50'
+	}
+}
+
+	function overlayKeypress(press) {
+		
+		if(press === 'Q') {
+			keyPress.q.sound.play()
+	
+		}
+
+		if(press === 'W') {
+			keyPress.w.sound.play()
+		}
+
+		if(press === 'E') {
+			keyPress.e.sound.play()
+		}
+
+		if(press === 'R') {
+			keyPress.r.sound.play()
+		}
+
+		if(press === 'T') {
+			keyPress.t.sound.play()
+		}
+
+		if(press === 'Y') {
+			keyPress.y.sound.play()
+		}
+
+		if(press === 'U') {
+			keyPress.u.sound.play()
+		}
+
+		if(press === 'I') {
+			keyPress.i.sound.play()
+		}
+
+		if(press === 'O') {
+			keyPress.o.sound.play()
+		}
+
+		if(press === 'P') {
+			keyPress.p.sound.play()
+		}
+
+		if(press === 'A') {
+			keyPress.a.sound.play()
+		}
+
+		if(press === 'S') {
+			keyPress.s.sound.play()
+		}
+
+		if(press === 'D') {
+			keyPress.d.sound.play()
+		}
+
+		if(press === 'F') {
+			keyPress.f.sound.play()
+		}
+
+		if(press === 'G') {
+			keyPress.g.sound.play()
+		}
+
+		if(press === 'H') {
+			keyPress.h.sound.play()
+		}
+
+		if(press === 'J') {
+			keyPress.j.sound.play()
+		}
+
+		if(press === 'K') {
+			keyPress.k.sound.play()
+		}
+
+		if(press === 'L') {
+			keyPress.l.sound.play()
+		}
+
+		if(press === 'Z') {
+			keyPress.z.sound.play()
+		}
+
+		if(press === 'X') {
+			keyPress.x.sound.play()
+		}
+
+		if(press === 'C') {
+			keyPress.c.sound.play()
+		}
+
+		if(press === 'V') {
+			keyPress.v.sound.play()
+		}
+
+		if(press === 'B') {
+			keyPress.b.sound.play()
+		}
+
+		if(press === 'N') {
+			keyPress.n.sound.play()
+		}
+
+		if(press === 'M') {
+			keyPress.m.sound.play()
+		}	
+		
+	}   
+	
+	</script>
+	
+</body>
+</html>

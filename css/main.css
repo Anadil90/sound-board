@@ -1,0 +1,63 @@
+canvas{
+	width: 100%;
+    height: 100%;
+	background: gray;
+}
+
+body, html{
+	height: 100%;
+	margin: 0;
+}
+
+.keyboardSpacer {
+    position:fixed;
+    top: 50;
+    bottom: 0;
+    width: 100%;
+}
+
+.overlay-keyboard {
+    width: 440px;
+    height: 133px;
+    background-color: rgba(102, 150, 153, 0.58);
+    border: 2px solid #ffc;
+    display: none;
+    
+}
+
+#button-grid {
+    
+    width: 80%;
+    height: 40%;
+    padding-left: 10px;
+    margin: 0 auto;
+    
+}
+
+.btns {
+    display: inline;
+    margin-right: 10px;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    width: 24px;
+    height: 21px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .overlay-keyboard {
+        display: block;
+        margin: 0 auto;
+        background-color: rgba(102, 150, 153, 0.58);
+    
+    }
+}
+
+@media (max-device-width: 499px) {
+    .overlay-keyboard {
+        display: block;
+        margin: 0 auto;
+    }
+} 
+
+
